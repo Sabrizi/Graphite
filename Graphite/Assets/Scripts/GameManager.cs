@@ -2,25 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Might not even need this class since unity handles all of the updating and game loop stuff. -SZ
+/// </summary>
 public class GameManager : MonoBehaviour {
 
-    public Hero player;
-   
-    //This holds a list of all updatable gameobjects in the game except for the player
-    public List<GameObject> gameObjects;
+    public LevelGenerator boardScript;
 
-	// Use this for initialization
-	void Start () {
-        gameObjects = new List<GameObject>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private int level = 3;
 
-    private void FixedUpdate()
+    private void Awake()
     {
-       
+        boardScript = GetComponent<LevelGenerator>();
+        initGame();
+    }
+
+    void initGame()
+    {
+        boardScript.setup(level);
     }
 }

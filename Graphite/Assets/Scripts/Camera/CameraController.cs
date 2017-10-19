@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour {
     public GameObject target;
 
 	// Use this for initialization
-	void Start () {
-        target = GameObject.Find("Hero");
+	void Awake () {
+        target = GameObject.Find("Player");
 	}
 	
 	// Update is called once per frame
